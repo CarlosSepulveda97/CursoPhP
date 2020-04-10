@@ -5,6 +5,8 @@ require_once 'app/Models/BaseElement.php';
 require_once 'app/Models/Project.php';
 require_once 'app/Models/Printable.php';
 
+use App\Models\{Job, Project, Printable};
+
 $job1=new job('PHP Developer','This is an awesome job!!');
 $job1->months=16;
 
@@ -16,6 +18,7 @@ $job3->months=20;
 
 $project1=new Project('Project 1', 'Description 1');
 
+$projectLib=new Lib1\Project();
 
 $jobs=[
     $job1,
