@@ -3,8 +3,18 @@
 class job{
     private $title;
     public $description;
-    public $visible;
+    public $visible=true;
     public $months;
+
+    public function __construct($title, $description)
+    {
+        if($title==""){
+            $this->title="Sin titulo";
+        }else{
+            $this->title=$title;
+        }
+        $this->description=$description;
+    }
 
     public function getTitle(){
         return $this->title;
@@ -13,25 +23,35 @@ class job{
     public function setTitle($title){
         $this->title=$title;
     }
+
+    public function getDuration(){
+        $years=floor($this->months/12);
+        $extraMonths=$this->months%12;
+        if ($years>=1){
+            return "$years years $extraMonths months";
+        }else{
+            return "$this->months months";
+        }
+    }
+
+
 }
 
-$job1=new job();
-$job1->setTitle=('PHP Developer');
-$job1->description='This is an awesome job!!';
-$job1->visible=true;
+$job1=new job('PHP Developer','This is an awesome job!!');
 $job1->months=16;
 
-$job2=new job();
-$job2->setTitle('Python Developer');
-$job2->description='This is an awesome job!!';
-$job2->visible=true;
+$job2=new job('Python Developer','This is an awesome job!!');
 $job2->months=20;
+
+$job3=new job('','This is an awesome job!!');
+$job3->months=20;
 
 
 $jobs=[
 
     $job1,
-    $job2
+    $job2,
+    $job3
 
     /*
     [
@@ -76,7 +96,7 @@ $jobs=[
         echo '<li class="work-position">';
         echo '<h5>' . $job->getTitle() . '</h5>';
         echo '<p>' . $job->description . '</p>';
-        echo '<p>' . getDuration($job->months) . '</p>';
+        echo '<p>' . $job->getDuration() . '</p>';
         echo '<strong>Achievements:</strong>';
         echo '<ul>';
         echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
@@ -86,15 +106,7 @@ $jobs=[
         echo '</li>';
     }
 
-    function getDuration($months){
-        $years=floor($months/12);
-        $extraMonths=$months%12;
-        if ($years>=1){
-            return "$years years $months months";
-        }else{
-            return "$months months";
-        }
-    }
+    
 
 
 
