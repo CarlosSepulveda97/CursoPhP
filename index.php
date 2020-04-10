@@ -31,18 +31,7 @@
             'visible'=>true,
             'months'=>3
         ]
-        ];
     
-    /*
-    $var1=1;
-    if($var1>2){
-        echo 'es mayor que 2';
-    }
-    else{
-        echo 'no es mayor que 2';
-    }
-    */
-  
 ?>
 
 
