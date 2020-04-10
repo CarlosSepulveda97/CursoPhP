@@ -57,7 +57,7 @@
             <?php
             $totalMonths=0;
                 for ($idx =0;$idx<count($jobs);$idx++){
-                    $totalMonths+=$jobs[$idx]['months'];
+                    $totalMonths+=$job1->months;
 
                     if($totalMonths>$limitMonths){
                     break;
