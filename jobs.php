@@ -1,41 +1,8 @@
 <?php
 
-class job{
-    private $title;
-    public $description;
-    public $visible=true;
-    public $months;
-
-    public function __construct($title, $description)
-    {
-        if($title==""){
-            $this->title="Sin titulo";
-        }else{
-            $this->title=$title;
-        }
-        $this->description=$description;
-    }
-
-    public function getTitle(){
-        return $this->title;
-    }
-
-    public function setTitle($title){
-        $this->title=$title;
-    }
-
-    public function getDuration(){
-        $years=floor($this->months/12);
-        $extraMonths=$this->months%12;
-        if ($years>=1){
-            return "$years years $extraMonths months";
-        }else{
-            return "$this->months months";
-        }
-    }
-
-
-}
+require_once 'app/Models/Job.php';
+require_once 'app/Models/BaseElement.php';
+require_once 'app/Models/Project.php';
 
 $job1=new job('PHP Developer','This is an awesome job!!');
 $job1->months=16;
@@ -46,48 +13,21 @@ $job2->months=20;
 $job3=new job('','This is an awesome job!!');
 $job3->months=20;
 
+$project1=new Project('Project 1', 'Description 1');
+
 
 $jobs=[
-
     $job1,
     $job2,
-    $job3
-
-    /*
-    [
-        'title'=>'PHP Developer',
-        'description'=>'This in an awesome job!!',
-        'visible'=>true,
-        'months'=>12
-    ],
-    [
-        'title'=>'Python Dev',
-        'description'=>'This in an awesome job!!',
-        'visible'=>false,
-        'months'=>6
-    ],
-    [
-        'title'=>'Devops',
-        'description'=>'This in an awesome job!!',
-        'visible'=>false,
-        'months'=>16
-    ],
-    [
-        'title'=>'Node Dev',
-        'description'=>'This in an awesome job!!',
-        'visible'=>true,
-        'months'=>8
-    ],
-    [
-        'title'=>'Frontend Dev',
-        'description'=>'This in an awesome job!!',
-        'visible'=>true,
-        'months'=>10
-    ]
-        */
+    $job3    
 ];
 
-    function printJob($job){
+$projects=[
+    $project1,
+];
+
+
+    function printElement($job){
             
         if ($job->visible==false){
             return;
