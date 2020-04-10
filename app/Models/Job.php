@@ -1,6 +1,7 @@
 <?php
 
 require_once 'BaseElement.php';
+require_once 'Printable.php';
 
 class Job extends BaseElement{
 
@@ -19,6 +20,10 @@ class Job extends BaseElement{
         }else{
             return "job duration: $this->months months";
         }
+    }
+
+    public function getDescription(){
+        return $this->description;
     }
 
 }
